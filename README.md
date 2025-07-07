@@ -4,7 +4,7 @@
 
 A field for [Payload](https://github.com/payloadcms/payload) which implements a robust icon picker which can be used with react-icons or custom svg icons.
 
-![payload-icon-picker-field-screenshot.png](https://github.com/Innovixx-Development/payload-icon-picker-field/blob/master/screenshots/payload-icon-picker-field-screenshot.png?raw=true)
+![payload-icon-picker-field-screenshot.png](https://github.com/tienngang/payload-icon-picker-field/blob/master/screenshots/payload-icon-picker-field-screenshot.png?raw=true)
 
 Core features:
 
