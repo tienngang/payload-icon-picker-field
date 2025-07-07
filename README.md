@@ -8,7 +8,14 @@ A field for [Payload](https://github.com/payloadcms/payload) which implements a 
 
 Core features:
 
-  - {{core features list}}
+  - Compatible with Payload v3
+  - Support for both react-icons and custom SVG icons
+  - Support for function-based icons
+  - Case-insensitive icon search
+  - Consistent icon sizing
+  - Improved component structure
+  - Limited to display max 140 icons for better performance
+  - Visual preview of icons directly in the field editor
 
 ## Installation
 
@@ -20,10 +27,10 @@ Core features:
 
 ## Basic Usage
 
-```js
-import * as fa6Icons from 'react-icons/fa6'
-import iconPickerField from '@innovixx/payload-icon-picker-field'
+```ts
+import { iconPickerField } from '@innovixx/payload-icon-picker-field'
 import type { CollectionConfig } from 'payload/types'
+import faIconsMap from '@/data/fa-icons.json'
 
 const Pages: CollectionConfig = {
   slug: 'pages',
@@ -40,16 +47,25 @@ const Pages: CollectionConfig = {
       name: 'customIcons',
       label: 'Custom Icons',
       icons: {
-        house: '<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"...',
-        user: '<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"...',
-        check: '<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"...',
+        house: {
+          icon: '<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"...',
+          group: 'Basic'
+        },
+        user: {
+          icon: '<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"...',
+          group: 'User'
+        },
+        check: {
+          icon: '<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"...',
+          group: 'Actions'
+        }
       },
     }),
     iconPickerField({
-      name: 'reactIconsIcon',
-      label: 'React Icons',
-      reactIconPack: fa6Icons,
-    }),
+      name: 'icon',
+      label: 'Icon',
+      icons: faIconsMap,
+    })
   ],
 }
 
