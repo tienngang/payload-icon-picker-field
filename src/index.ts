@@ -2,7 +2,12 @@ import type { Field, TextField } from "payload"
 
 export const iconPickerField = (
   options?: {
-    icons?: Record<string, string>
+    icons?: {
+      [key: string]: {
+        icon: string
+        group: string
+      }
+    }
   } & Partial<TextField>,
 ): Field => {
   const { icons, ...rest } = options || {}
