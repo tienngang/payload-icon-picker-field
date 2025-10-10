@@ -59,7 +59,7 @@ export const IconPickerInput: React.FC<IconPickerInputProps> = (props) => {
   const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
     let value = evt.target.value.replace(/[^a-zA-Z0-9]/g, '') // loại ký tự không hợp lệ
 
-    if (value.length > 0) {
+    /* if (value.length > 0) {
       value = value
         .split('')
         .map((char, index) => {
@@ -68,9 +68,10 @@ export const IconPickerInput: React.FC<IconPickerInputProps> = (props) => {
           return char // giữ nguyên các ký tự còn lại
         })
         .join('')
-    }
+    } */
 
     evt.target.value = value
+    setSearch(evt.target.value)
 
     onChange?.(evt as any)
   }
