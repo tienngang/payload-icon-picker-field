@@ -10,8 +10,8 @@ import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
 import { seed } from './seed'
 
-const filename = fileURLToPath(import.meta.url)
-const dirname = path.dirname(filename)
+const filename = import.meta.url ? fileURLToPath(import.meta.url) : process.cwd()
+const dirname = import.meta.url ? path.dirname(filename) : process.cwd()
 // eslint-disable-next-line no-restricted-exports
 export default buildConfig({
   admin: {
