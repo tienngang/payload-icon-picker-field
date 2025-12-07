@@ -10,6 +10,7 @@ export const Pages: CollectionConfig = {
       name: 'title',
       type: 'text',
       required: true,
+      localized: true,
     },
     {
       name: 'slug',
@@ -18,6 +19,7 @@ export const Pages: CollectionConfig = {
         position: 'sidebar',
       },
       required: true,
+      localized: true,
     },
     iconPickerField({
       name: 'customIcons',
@@ -27,6 +29,7 @@ export const Pages: CollectionConfig = {
     {
       name: 'excerpt',
       type: 'text',
+      localized: true,
     },
     {
       name: 'date',
