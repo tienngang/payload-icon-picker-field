@@ -10,8 +10,24 @@ import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
 import { seed } from './seed'
 
-const filename = import.meta.url ? fileURLToPath(import.meta.url) : process.cwd()
-const dirname = import.meta.url ? path.dirname(filename) : process.cwd()
+let filename: string
+let dirname: string
+
+try {
+  if (!import.meta.url) {
+    console.warn('[demo-payload.config] import.meta.url is undefined, using process.cwd()')
+    filename = process.cwd()
+    dirname = process.cwd()
+  } else {
+    filename = fileURLToPath(import.meta.url)
+    dirname = path.dirname(filename)
+    console.log('[demo-payload.config] Successfully initialized paths')
+  }
+} catch (error) {
+  console.error('[demo-payload.config] Error initializing paths:', error)
+  filename = process.cwd()
+  dirname = process.cwd()
+}
 // eslint-disable-next-line no-restricted-exports
 export default buildConfig({
   admin: {
