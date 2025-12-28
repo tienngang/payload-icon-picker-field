@@ -1,0 +1,74 @@
+{
+  "name": "@tienngang/payload-icon-picker-field",
+  "version": "1.0.0-beta.8",
+  "homepage:": "https://innovixx.co.uk",
+  "repository": "git@github.com:tienngang/payload-icon-picker-field.git",
+  "description": "payload-icon-picker-field",
+  "type": "module",
+  "scripts": {
+    "build": "tsc && pnpm copy:scss",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src",
+    "lint:fix": "eslint --fix --ext .ts,.tsx src",
+    "copy:scss": "copyfiles -u 1 \"src/**/*.scss\" dist",
+    "watch": "nodemon --watch src -e ts,tsx,scss --exec \"pnpm build\""
+  },
+  "keywords": [
+    "payload",
+    "cms",
+    "field",
+    "typescript",
+    "react",
+    "icons",
+    "selector"
+  ],
+  "author": "tienngang@gmail.com",
+  "license": "MIT",
+  "peerDependencies": {
+    "next": "^15.4.8",
+    "payload": "^3.2.2",
+    "react": "^19.1.0"
+  },
+  "devDependencies": {
+    "@payloadcms/eslint-config": "^3.0.0",
+    "@payloadcms/next": "3.64.0",
+    "@payloadcms/translations": "3.64.0",
+    "@payloadcms/ui": "3.64.0",
+    "@types/node": "^20.14.14",
+    "@types/react": "19.0.0",
+    "@types/react-dom": "19.0.0",
+    "@typescript-eslint/eslint-plugin": "5.12.1",
+    "@typescript-eslint/parser": "5.12.1",
+    "copyfiles": "^2.4.1",
+    "cross-env": "^7.0.3",
+    "next": "15.4.8",
+    "nodemon": "^2.0.6",
+    "payload": "3.64.0",
+    "prettier": "^2.7.1",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "ts-essentials": "^10.0.3",
+    "ts-node": "^9.1.1",
+    "typescript": "5.7.2"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./components": {
+      "import": "./dist/components/index.js",
+      "types": "./dist/components/index.d.ts",
+      "default": "./dist/components/index.js"
+    }
+  },
+  "publishConfig": {
+    "registry": "https://git-registry.3tc.vn"
+  }
+}

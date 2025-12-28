@@ -1,0 +1,69 @@
+{
+  "name": "website-payload-boilerplate",
+  "version": "0.0.0",
+  "description": "A boilerplate for a Payload server",
+  "repository": "git@github.com:innovixx/website-payload-boilerplate.git",
+  "author": "Innovixx <support@innovixx.co.uk>",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev -p 9000",
+    "cleanDev": "rm -rf ./storage && cross-env PAYLOAD_DROP_DATABASE=true PAYLOAD_SEED_DATABASE=true next dev -p 9000",
+    "build": "next build",
+    "serve": "cross-env NODE_ENV=production next start -p 9000",
+    "payload": "payload",
+    "generate:types": "payload generate:types",
+    "generate:graphql": "payload generate:graphQLSchema",
+    "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
+    "lint-staged": "lint-staged --verbose",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@azure/storage-blob": "^12.26.0",
+    "@payloadcms/db-mongodb": "3.16.0",
+    "@payloadcms/next": "3.16.0",
+    "@payloadcms/richtext-lexical": "3.16.0",
+    "@payloadcms/ui": "^3.16.0",
+    "body-parser": "^1.20.2",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "graphql": "^16.9.0",
+    "next": "15.1.3",
+    "payload": "3.16.0",
+    "react": "19.0.0",
+    "react-colorful": "^5.6.1",
+    "react-dom": "19.0.0",
+    "react-icons": "^4.12.0",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "@innovixx/eslint-config": "^1.3.3",
+    "@types/node": "^20.14.14",
+    "@types/react": "19.0.0",
+    "@types/react-dom": "19.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.3.0",
+    "@typescript-eslint/parser": "^8.3.0",
+    "copyfiles": "^2.4.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-sort-export-all": "^1.4.1",
+    "eslint-plugin-sort-keys-fix": "^1.1.2",
+    "husky": "^9.1.5",
+    "lint-staged": "^14.0.1",
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "lint-staged": {
+    "**/*.{js,ts,jsx,tsx}": [
+      "eslint",
+      "bash -c tsc"
+    ]
+  },
+  "engines": {
+    "node": "^18.20.2 || >=20.9.0"
+  }
+}

@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ../..:/workspaces:cached
+      - ~/.ssh:/home/vscode/.ssh:cached
+      - ~/.npmrc:/home/vscode/.npmrc:cached
+    command: sleep infinity
+    working_dir: /workspaces/payload-icon-picker-field
+
+  db:
+    image: mongo:latest
+    restart: unless-stopped
+    volumes:
+      - mongodb-data:/data/db
+    network_mode: service:app
+
+volumes:
+  mongodb-data:
