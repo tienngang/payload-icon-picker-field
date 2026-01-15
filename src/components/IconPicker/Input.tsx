@@ -57,7 +57,7 @@ export const IconPickerInput: React.FC<IconPickerInputProps> = (props) => {
   const { i18n, t } = useTranslation()
 
   const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
-    let value = evt.target.value.replace(/[^a-zA-Z0-9]/g, '') // loại ký tự không hợp lệ
+    let value = evt.target.value.replace(/[^a-zA-Z0-9]/g, '')
 
     /* if (value.length > 0) {
       value = value
@@ -132,7 +132,7 @@ export const IconPickerInput: React.FC<IconPickerInputProps> = (props) => {
       })
       setFilteredIcons(foundIcons)
     }
-    
+
     // Reset visible counts per group when search changes
     const initialCounts: { [group: string]: number } = {}
     Object.keys(groupedIcons).forEach(group => {
@@ -140,11 +140,11 @@ export const IconPickerInput: React.FC<IconPickerInputProps> = (props) => {
     })
     setVisibleIconsPerGroup(initialCounts)
   }, [debouncedSearch, icons, groupedIcons])
-  
+
   // Calculate group counts separately when filteredIcons changes
   useEffect(() => {
     if (!filteredIcons) return
-    
+
     // Calculate counts per group
     const counts: { [group: string]: number } = {}
     Object.entries(filteredIcons || {}).forEach(([iconName, iconData]) => {
@@ -284,10 +284,10 @@ export const IconPickerInput: React.FC<IconPickerInputProps> = (props) => {
 
                       // If we're within 100px of the bottom and not already loading more
                       if (scrollHeight - scrollTop - clientHeight < 100 && !isLoadingMore) {
-                        if(visibleIconsPerGroup[activeGroup] < groupCounts[activeGroup]){
+                        if (visibleIconsPerGroup[activeGroup] < groupCounts[activeGroup]) {
                           setIsLoadingMore(true);
                         }
-                        
+
                         // Add more icons for the current group (increment by 50)
                         setTimeout(() => {
                           if (activeGroup) {
