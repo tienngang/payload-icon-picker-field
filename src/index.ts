@@ -25,7 +25,7 @@ export const iconPickerField = (
             icons: icons,
             readOnly: rest?.admin?.readOnly,
           },
-          path: '@innovixx/payload-icon-picker-field/components#IconPickerFieldComponent',
+          path: '@tienngang/payload-icon-picker-field/components#IconPickerFieldComponent',
         },
       },
     },
